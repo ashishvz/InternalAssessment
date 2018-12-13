@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternalAssessment"
         mc:Ignorable="d"
-        Title="subject" Height="450" Width="800">
+        MaxHeight="450"
+        MaxWidth="800"
+        Title="Subject Creation" Height="450" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico" >
     <Grid>
         <Label Content="Subject Information" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" FontWeight="Bold" FontSize="18" Margin="315,0,0,0"/>
         <Label Content="Course" HorizontalAlignment="Left" Margin="45,61,0,0" VerticalAlignment="Top" FontSize="14"/>
@@ -13,16 +15,17 @@
         <TextBox x:Name="subtxt" HorizontalAlignment="Left" Height="23" Margin="105,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="2"/>
         <ComboBox x:Name="cbcourse" HorizontalAlignment="Left" Margin="105,65,0,0" VerticalAlignment="Top" Width="120" TabIndex="1"/>
         <Label Content="Note: Create Subject Name" HorizontalAlignment="Left" Margin="66,179,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold"/>
-        <Button Content="Create" HorizontalAlignment="Left" Margin="105,154,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click_1" TabIndex="3"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="65,154,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click_1" TabIndex="3"/>
         <Label Content="Note: Select RollNo from particular subject" HorizontalAlignment="Left" Margin="60,225,0,0" VerticalAlignment="Top" Width="205" FontSize="10"/>
         <Label Content="From:" HorizontalAlignment="Left" Margin="51,258,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="fromtxt" HorizontalAlignment="Left" Height="23" Margin="96,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" TabIndex="5"/>
+        <TextBox x:Name="fromtxt" HorizontalAlignment="Left" Height="23" Margin="96,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" TabIndex="5" />
         <Label Content="To:" HorizontalAlignment="Left" Margin="65,292,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="totxt" HorizontalAlignment="Left" Height="23" Margin="96,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" TabIndex="6"/>
         <Button Content="Insert" HorizontalAlignment="Left" Margin="58,345,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" TabIndex="7"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="160,345,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_2" TabIndex="8"/>
         <DataGrid x:Name="subdatagrid" HorizontalAlignment="Left" Height="370" Margin="310,39,0,0" VerticalAlignment="Top" Width="472"/>
         <Separator HorizontalAlignment="Left" Height="15" Margin="20,205,0,0" VerticalAlignment="Top" Width="245"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="155,154,0,0" VerticalAlignment="Top" Width="82" Click="load_btn" TabIndex="3"/>
 
     </Grid>
 </Window>

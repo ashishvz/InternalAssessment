@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternalAssessment"
         mc:Ignorable="d"
-        Title="studentinfo" Height="450" Width="800">
+        MaxHeight="450"
+        MaxWidth="800"
+        Title="Student Information" Height="450" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
     <Grid>
         <Label Content="New Student Information" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label Content="Course" HorizontalAlignment="Left" Margin="55,79,0,0" VerticalAlignment="Top" FontSize="14"/>

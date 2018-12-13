@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         MaxHeight="400"
         MaxWidth="800"
-        Title="firstia" Height="400" Width="800">
+        Title="FirstIA Marks" Height="400" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
     <Grid>
         <Label Content="First IA" HorizontalAlignment="Left" Margin="340,5,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="18"/>
         <Label Content="Roll No" HorizontalAlignment="Left" Margin="42,158,0,0" VerticalAlignment="Top" FontSize="14"/>

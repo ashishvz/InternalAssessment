@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternalAssessment"
         mc:Ignorable="d"
-        Title="jamarks" Height="450" Width="800">
+        MaxHeight="450"
+        MaxWidth="800"
+        Title="Journal and Attendance Marks" Height="450" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
     <Grid>
         <Label Content="Journal &amp; Attendance Marks" HorizontalAlignment="Left" Margin="275,5,0,0" VerticalAlignment="Top" Width="285" FontWeight="Bold" FontSize="18"/>
         <DataGrid x:Name="datagridja" HorizontalAlignment="Left" Height="365" Margin="315,44,0,0" VerticalAlignment="Top" Width="467"/>

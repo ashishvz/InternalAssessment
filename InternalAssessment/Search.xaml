@@ -1,0 +1,24 @@
+﻿<Window x:Class="InternalAssessment.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InternalAssessment"
+        mc:Ignorable="d"
+        MaxHeight="450"
+        MaxWidth="800"
+        Title="Search" Height="450" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
+    <Grid>
+        <Label Content="Course" HorizontalAlignment="Left" Margin="35,46,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Subject" HorizontalAlignment="Left" Margin="245,47,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="subtxt" HorizontalAlignment="Left" Height="23" Margin="305,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="2"/>
+        <ComboBox x:Name="cbcourse" HorizontalAlignment="Left" Margin="95,50,0,0" VerticalAlignment="Top" Width="120" TabIndex="1" SelectionChanged="Cbcourse_SelectionChanged"/>
+        <DataGrid x:Name="searchdatagrid" HorizontalAlignment="Left" Height="250" Margin="10,80,0,0" VerticalAlignment="Top" Width="772"/>
+        <Button x:Name="serachbtn" Content="Search" HorizontalAlignment="Left" Margin="675,53,0,0" VerticalAlignment="Top" Width="82"  TabIndex="3" Click="Serachbtn_Click"/>
+        <Label Content="Search Info" HorizontalAlignment="Left" Margin="350,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Roll No" HorizontalAlignment="Left" Margin="455,47,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="rolltxt" HorizontalAlignment="Left" Height="23" Margin="515,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="2"/>
+        <Button x:Name="serachbtn_Copy" Content="Back" HorizontalAlignment="Left" Margin="675,365,0,0" VerticalAlignment="Top" Width="82"  TabIndex="3" Click="backbtn"/>
+
+    </Grid>
+</Window>

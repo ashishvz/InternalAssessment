@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         MaxHeight="400"
         MaxWidth="800"
-        Title="InternalAssessment(Login Page)" Height="400" Width="800">
+        Title="InternalAssessment(Login Page)" Height="400" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="787*"/>
         </Grid.ColumnDefinitions>
-        <Image HorizontalAlignment="Left" Height="116" Margin="96,119,0,0" VerticalAlignment="Top" Width="124" Source="C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\images\ash.png" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="116" Margin="105,100,0,0" VerticalAlignment="Top" Width="124" Source="C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\images\ash.png" Grid.Column="1"/>
         <Separator HorizontalAlignment="Left" Height="100" Margin="185,125,0,0" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
             <Separator.RenderTransform>
                 <TransformGroup>
@@ -35,6 +35,8 @@
         <Label x:Name="errorlab" Content="" HorizontalAlignment="Left" Margin="475,189,0,0" VerticalAlignment="Top" Width="233" Grid.Column="1"/>
         <Label Content="©2018. Copyright ashdevelopers software solutions" HorizontalAlignment="Left" Margin="195,333,0,0" VerticalAlignment="Top" Width="287" Grid.Column="1"/>
         <Button Content="Change Credentials" HorizontalAlignment="Left" Margin="555,220,0,0" VerticalAlignment="Top" Width="130" Click="change_credentials" Panel.ZIndex="3" RenderTransformOrigin="0.682,-0.75" Grid.Column="1" TabIndex="4"/>
+        <Label Content="Developed By:&#xD;&#xA;Ashish Zingade" HorizontalAlignment="Left" Margin="120,202,0,0" VerticalAlignment="Top" Grid.Column="1" Width="109" FontStyle="Italic" FontWeight="Bold"/>
+        <Button x:Name="contactbtn" Content="Contact Us" Grid.Column="1" HorizontalAlignment="Left" Margin="130,249,0,0" VerticalAlignment="Top" Width="75" Click="Contactbtn_Click"/>
 
     </Grid>
 </Window>

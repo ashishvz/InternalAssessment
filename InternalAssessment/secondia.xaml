@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternalAssessment"
         mc:Ignorable="d"
-        Title="secondia" Height="450" Width="800">
+        MaxHeight="450"
+        MaxWidth="800"
+        Title="SecondIA Marks" Height="450" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
     <Grid>
         <Label Content="Second IA" HorizontalAlignment="Left" Margin="315,10,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold" FontSize="18"/>
         <DataGrid x:Name="datagridfia" HorizontalAlignment="Left" Height="365" Margin="315,44,0,0" VerticalAlignment="Top" Width="467" TabIndex="9"/>

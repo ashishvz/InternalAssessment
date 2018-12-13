@@ -25,7 +25,6 @@ namespace InternalAssessment
         private SqlConnection connection;
         private SqlCommand cmd = new SqlCommand();
         private SqlDataAdapter dataAdapter;
-        int i = 0;
         public studentinfo()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace InternalAssessment
             coursecb.Items.Add("BCS");
             
             
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Program Files (x86)\ashdevelopers\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
             connection = new SqlConnection(ConnectionString);
             filldata();
 
@@ -41,18 +40,18 @@ namespace InternalAssessment
         }       
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            try
+            if (coursecb.Text != "" && rolltxt.Text != "" && fnametxt.Text != "" && lnametxt.Text != "")
             {
+                try
+            {           
 
-               
-              
-                cmd = new SqlCommand("insert into studentinfo (rollno,fname,lname,course) values(@rollno,@fname,@lname,@course)", connection);
-                cmd.Parameters.AddWithValue("@rollno", rolltxt.Text);
-                cmd.Parameters.AddWithValue("@fname", fnametxt.Text);
-                cmd.Parameters.AddWithValue("@lname", lnametxt.Text);
-                cmd.Parameters.AddWithValue("@course", coursecb.Text);
-                connection.Open();
-                cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand("insert into studentinfo (rollno,fname,lname,course) values(@rollno,@fname,@lname,@course)", connection);
+                    cmd.Parameters.AddWithValue("@rollno", rolltxt.Text);
+                    cmd.Parameters.AddWithValue("@fname", fnametxt.Text);
+                    cmd.Parameters.AddWithValue("@lname", lnametxt.Text);
+                    cmd.Parameters.AddWithValue("@course", coursecb.Text);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
                 
             }
             catch(SqlException ex)
@@ -66,7 +65,12 @@ namespace InternalAssessment
                 connection.Close();
                 filldata();
             }
-           
+            }
+            else
+            {
+                MessageBox.Show("Please enter the data properly!");
+            }
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

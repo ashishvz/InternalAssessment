@@ -30,48 +30,62 @@ namespace InternalAssessment
         InitializeComponent();
         cbcourse.Items.Add("BCA");
         cbcourse.Items.Add("BCS");
-        ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
+        ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Program Files (x86)\ashdevelopers\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
         SqlConnection = new SqlConnection(ConnectionString);
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-            try
+            if (cbcourse.Text != "" && subtxt.Text != "" && fromtxt.Text != "" && totxt.Text != "")
             {
-                cmd = new SqlCommand("insert into " + cbcourse.Text + subtxt.Text + " (rollno,fname,lname) select rollno,fname,lname from dbo.studentinfo where rollno between '" + fromtxt.Text + "' and '" + totxt.Text + "';", SqlConnection);
-                SqlConnection.Open();
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("RollNo fetched from" + fromtxt.Text + " to " + totxt.Text);
+                try
+                {
+                    cmd = new SqlCommand("insert into " + cbcourse.Text + subtxt.Text + " (rollno,fname,lname) select rollno,fname,lname from dbo.studentinfo where rollno between '" + fromtxt.Text + "' and '" + totxt.Text + "';", SqlConnection);
+                    SqlConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("RollNo fetched from" + fromtxt.Text + " to " + totxt.Text);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    SqlConnection.Close();
+                    filldata();
+                }
             }
-            catch(SqlException ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                SqlConnection.Close();
-                filldata();
+                MessageBox.Show("Please enter the fields!");
             }
     }
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
-    try
-        {
-            cmd = new SqlCommand("create table dbo." + cbcourse.Text + subtxt.Text + "(rollno varchar(10) primary key not null,fname varchar(15) not null,lname varchar(15) not null, firstia float, secondia float,journal float, atten float, total float);", SqlConnection);
-            SqlConnection.Open();
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Subject Named " + cbcourse.Text + subtxt.Text + " Created!!");
-        }
-        catch (SqlException ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
-        finally
-        {
-            SqlConnection.Close();
-            filldata();
-        }
+            if (cbcourse.Text != "" && subtxt.Text != "")
+            {
+                try
+                {
+                    cmd = new SqlCommand("create table dbo." + cbcourse.Text + subtxt.Text + "(rollno varchar(10) primary key not null,fname varchar(15) not null,lname varchar(15) not null, firstia float, secondia float,journal float, atten float, total float);", SqlConnection);
+                    SqlConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Subject Named " + cbcourse.Text + subtxt.Text + " Created!!");
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    SqlConnection.Close();
+                    filldata();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select the Course or enter the subject!;");
+            }
     }
 
     public void filldata()
@@ -108,8 +122,15 @@ namespace InternalAssessment
 
         public void load_btn(object sender, RoutedEventArgs e)
         {
-            filldata();
-        }
+            if (cbcourse.Text != "" && subtxt.Text != "")
+            {
+                filldata();
+            }
+            else
+            {
+                MessageBox.Show("Select the Course or enter the subject!;");
+            }
+        }   
     }
 }
 

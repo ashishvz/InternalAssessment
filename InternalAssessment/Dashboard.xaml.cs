@@ -77,5 +77,21 @@ namespace InternalAssessment
             mainWindow.Show();
             this.Close();
         }
+
+        private void search_btn(object sender, RoutedEventArgs e)
+        {
+            Search search = new Search();
+            search.Show();
+            this.Close();
+        }
+
+        private void delete_btn(object sender, RoutedEventArgs e)
+        {
+            delete delete = new delete();
+            delete.Show();
+            this.Close();
+            
+          
+        }
     }
 }

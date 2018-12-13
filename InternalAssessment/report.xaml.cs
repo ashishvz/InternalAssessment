@@ -30,34 +30,49 @@ namespace InternalAssessment
             InitializeComponent();
             cbcourse.Items.Add("BCA");
             cbcourse.Items.Add("BCS");
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Program Files (x86)\ashdevelopers\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
             connection = new SqlConnection(ConnectionString);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (cbcourse.Text != "" && subtxt.Text != "")
             {
+                try
+                {
 
-                connection.Open();
-                cmd = new SqlCommand("select * from dbo." + cbcourse.Text + subtxt.Text + ";", connection);
-                dataAdapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable("dbo." + cbcourse.Text + subtxt.Text);
-                dataAdapter.Fill(dt);
-                dt.WriteXml("D:\\" + cbcourse.Text + subtxt.Text + ".xls");
-                MessageBox.Show("Exported succefully D:\\" + cbcourse.Text + subtxt.Text + ".xls");
+                    connection.Open();
+                    cmd = new SqlCommand("select * from dbo." + cbcourse.Text + subtxt.Text + ";", connection);
+                    dataAdapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable("dbo." + cbcourse.Text + subtxt.Text);
+                    dataAdapter.Fill(dt);
+                    dt.WriteXml("D:\\" + cbcourse.Text + subtxt.Text + ".xls");
+                    MessageBox.Show("Exported succefully D:\\" + cbcourse.Text + subtxt.Text + ".xls");
+
+                }
+                catch (SqlException ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                    connection.Close();
+                }
             }
-            catch (SqlException ex)
+            else
             {
-
-                MessageBox.Show(ex.Message);
-                connection.Close();
+                MessageBox.Show("Select the Course or enter the subject!;");
             }
         }
 
         private void Load_btn_Click(object sender, RoutedEventArgs e)
         {
-            filldata();
+            if (cbcourse.Text != "" && subtxt.Text != "")
+            {
+                filldata();
+            }
+            else
+            {
+                MessageBox.Show("Select the Course or enter the subject!;");
+            }
         }
         public void filldata()
         {
@@ -92,21 +107,28 @@ namespace InternalAssessment
 
         private void total_btn(object sender, RoutedEventArgs e)
         {
-            try
+            if (cbcourse.Text != "" && subtxt.Text != "")
             {
-                
-                cmd = new SqlCommand("update dbo." + cbcourse.Text + subtxt.Text + " set total= firstia+secondia+journal+atten;", connection);
-                connection.Open();
-                cmd.ExecuteNonQuery();
+                try
+                {
+
+                    cmd = new SqlCommand("update dbo." + cbcourse.Text + subtxt.Text + " set total= firstia+secondia+journal+atten;", connection);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                    filldata();
+                }
             }
-            catch (SqlException ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-                filldata();
+                MessageBox.Show("Select the Course or enter the subject!;");
             }
         }
     }

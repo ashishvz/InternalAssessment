@@ -30,7 +30,7 @@ namespace InternalAssessment
         {
             InitializeComponent();
             
-            ConnectionString= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Program Files (x86)\ashdevelopers\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
             connection = new SqlConnection(ConnectionString);
         }
 
@@ -87,6 +87,18 @@ namespace InternalAssessment
         {
             ChangeCredentials change = new ChangeCredentials();
             change.Show();
+            this.Close();
+        }
+
+        private void Usertxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Contactbtn_Click(object sender, RoutedEventArgs e)
+        {
+            ContactUs contact = new ContactUs();
+            contact.Show();
             this.Close();
         }
     }

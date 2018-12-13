@@ -13,9 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
-using System.Runtime.InteropServices;
-using Excel = Microsoft.Office.Interop.Excel;
-
 
 namespace InternalAssessment
 {
@@ -34,29 +31,37 @@ namespace InternalAssessment
             InitializeComponent();
             cbcourse.Items.Add("BCA");
             cbcourse.Items.Add("BCS");
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Program Files (x86)\ashdevelopers\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
             connection = new SqlConnection(ConnectionString);       
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            { 
-                double fia = Convert.ToDouble(marks.Text);
-                fia = fia / 5;
-                cmd = new SqlCommand("update dbo."+cbcourse.Text+subtxt.Text+" set firstia='" + fia + "' where rollno='" + rollno.Text + "';", connection);
-                connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch(SqlException ex)
+            if (cbcourse.Text != "" && subtxt.Text != "" && marks.Text != "")
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+
+                    double fia = Convert.ToDouble(marks.Text);
+                    fia = fia / 5;
+                    cmd = new SqlCommand("update dbo." + cbcourse.Text + subtxt.Text + " set firstia='" + fia + "' where rollno='" + rollno.Text + "';", connection);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                    filldata();
+                }
             }
-            finally
+            else
             {
-                connection.Close();
-                studentinfo studentinfo = new studentinfo();
-                filldata();
+                MessageBox.Show("Please enter all the fields;");
             }
         }
 
@@ -71,41 +76,49 @@ namespace InternalAssessment
 
         private void Load_btn_Click(object sender, RoutedEventArgs e)
         {
-            filldata();
+            if (cbcourse.Text != "" && subtxt.Text != "")
+            {
+                filldata();
+            }
+            else
+            {
+                MessageBox.Show("Please select course or enter the subject");
+            }
         }
 
         private void export_xl(object sender, RoutedEventArgs e)
         {
-            try
+            if (cbcourse.Text != "" && subtxt.Text != "")
             {
+                try
+                {
 
-                connection.Open();
-                cmd = new SqlCommand("select rollno,fname,lname,firstia from dbo."+cbcourse.Text+subtxt.Text+";", connection);
-                dataAdapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable("dbo."+cbcourse.Text+subtxt.Text);
-                dataAdapter.Fill(dt);
+                    connection.Open();
+                    cmd = new SqlCommand("select rollno,fname,lname,firstia from dbo." + cbcourse.Text + subtxt.Text + ";", connection);
+                    dataAdapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable("dbo." + cbcourse.Text + subtxt.Text);
+                    dataAdapter.Fill(dt);
+                    dt.WriteXml("D:\\" + cbcourse.Text + subtxt.Text + ".xls");
+                    MessageBox.Show("Exported succefully to D:\\" + cbcourse.Text + subtxt.Text + ".xls");
+                }
+                catch (SqlException ex)
+                {
 
-               
-
-
-
-
-                 dt.WriteXml("D:\\"+cbcourse.Text+subtxt.Text+".xls");
-                 MessageBox.Show("Exported succefully D:\\" + cbcourse.Text + subtxt.Text + ".xls");
+                    MessageBox.Show(ex.Message);
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (SqlException ex)
+            else
             {
-
-                MessageBox.Show(ex.Message);
-                connection.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please select course and enter a valid subject");
             }
         }
         public void filldata()
-        {
+        { 
             try
             {
 

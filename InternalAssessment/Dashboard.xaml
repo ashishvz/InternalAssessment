@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternalAssessment"
         mc:Ignorable="d"
-        Title="Dashboard" Height="400" Width="400">
+        MaxHeight="447"
+        MaxWidth="400"
+        Title="Dashboard" Height="447" Width="400" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
     <Grid>
-        <Button x:Name="studentinfobtn" Content="Create Student Information" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,20,0,0" Height="35" Click="Button_Click_1" TabIndex="1" FontSize="14"/>
-        <Button x:Name="logoutbtn" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="307,336,0,0" Click="Button_Click" TabIndex="8" FontSize="14"/>
+        <Button x:Name="studentinfobtn" Content="Create Student Information" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,25,0,0" Height="35" Click="Button_Click_1" TabIndex="1" FontSize="14"/>
+        <Button x:Name="logoutbtn" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="52" Margin="323,380,0,0" Click="Button_Click" TabIndex="8" FontSize="14" Height="26"/>
         <Button x:Name="subjectbtn" Content="Create Subject" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,65,0,0" Height="35" Click="Subjectbtn_Click" TabIndex="2" FontSize="14"/>
-        <Button x:Name="firstiabtn" Content="Insert First IA Marks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,110,0,0" Height="35" Click="Firstiabtn_Click" TabIndex="3" FontSize="14"/>
-        <Button x:Name="secondiabtn" Content="Insert Second IA Marks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,155,0,0" Height="35" Click="Secondiabtn_Click" TabIndex="4" FontSize="14"/>
-        <Button x:Name="jabtn" Content="Insert Journal &amp; Attendance Marks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,200,0,0" Height="35" Click="Jabtn_Click" TabIndex="5" FontSize="14"/>
-        <Button x:Name="reportbtn" Content="Generate Final Report" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,245,0,0" Height="35" Click="Reportbtn_Click" TabIndex="6" FontSize="14"/>
-        <Button x:Name="exitbtn" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,290,0,0" Height="35" Click="Exitbtn_Click" TabIndex="7" FontSize="14"/>
+        <Button x:Name="firstiabtn" Content="Insert First IA Marks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,105,0,0" Height="35" Click="Firstiabtn_Click" TabIndex="3" FontSize="14"/>
+        <Button x:Name="secondiabtn" Content="Insert Second IA Marks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,145,0,0" Height="35" Click="Secondiabtn_Click" TabIndex="4" FontSize="14"/>
+        <Button x:Name="jabtn" Content="Insert Journal &amp; Attendance Marks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,185,0,0" Height="35" Click="Jabtn_Click" TabIndex="5" FontSize="14"/>
+        <Button x:Name="reportbtn" Content="Generate Final Report" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,225,0,0" Height="35" Click="Reportbtn_Click" TabIndex="6" FontSize="14"/>
+        <Button x:Name="exitbtn" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,345,0,0" Height="35" Click="Exitbtn_Click" TabIndex="7" FontSize="14"/>
+        <Button x:Name="searchbtn_Copy" Content="Search " HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,265,0,0" Height="35" Click="search_btn" TabIndex="7" FontSize="14"/>
+        <Button x:Name="deletebtn" Content="Delete Info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="85,305,0,0" Height="35" Click="delete_btn" TabIndex="7" FontSize="14"/>
     </Grid>
 </Window>

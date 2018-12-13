@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternalAssessment"
         mc:Ignorable="d"
-        Title="report" Height="450" Width="800">
+        MaxHeight="450"
+        MaxWidth="800"
+        Title="Report Generation" Height="450" Width="800" Icon="C:\Program Files (x86)\ashdevelopers\InternalAssessment\iaicon.ico">
     <Grid>
         <Label Content="Generate Report" HorizontalAlignment="Left" Margin="325,10,0,0" VerticalAlignment="Top" Width="173" FontWeight="Bold" FontSize="18"/>
         <DataGrid x:Name="datagridfinal" HorizontalAlignment="Left" Height="294" Margin="10,115,0,0" VerticalAlignment="Top" Width="772"/>

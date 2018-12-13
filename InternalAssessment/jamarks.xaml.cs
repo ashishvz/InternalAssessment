@@ -30,33 +30,48 @@ namespace InternalAssessment
             InitializeComponent();
             cbcourse.Items.Add("BCA");
             cbcourse.Items.Add("BCS");
-            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ashis\source\repos\InternalAssessment\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
+            ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Program Files (x86)\ashdevelopers\InternalAssessment\IADatabase.mdf;Integrated Security=True;Connect Timeout=30";
             connection = new SqlConnection(ConnectionString);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (cbcourse.Text != "" && subtxt.Text != "" && rollno.Text != "" && jmark.Text != "" && amark.Text != "")
             {
+                try
+                {
+
+                    cmd = new SqlCommand("update dbo." + cbcourse.Text + subtxt.Text + " set journal='" + jmark.Text + "',atten='" + amark.Text + "' where rollno='" + rollno.Text + "';", connection);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                    filldata();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter the data in all fields!");
                 
-                cmd = new SqlCommand("update dbo." + cbcourse.Text + subtxt.Text + " set journal='" +jmark.Text+ "',atten='"+amark.Text+"' where rollno='" + rollno.Text + "';", connection);
-                connection.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-                filldata();
             }
         }
 
         private void Load_btn_Click(object sender, RoutedEventArgs e)
         {
-            filldata();
+            if (cbcourse.Text != "" && subtxt.Text != "")
+            {
+                filldata();
+            }
+            else
+            {
+                MessageBox.Show("Select the Course or enter the subject!;");
+            }
         }
         public void filldata()
         {
