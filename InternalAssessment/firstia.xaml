@@ -1,0 +1,30 @@
+﻿<Window x:Class="InternalAssessment.firstia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InternalAssessment"
+        mc:Ignorable="d"
+        MaxHeight="400"
+        MaxWidth="800"
+        Title="firstia" Height="400" Width="800">
+    <Grid>
+        <Label Content="First IA" HorizontalAlignment="Left" Margin="340,5,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Roll No" HorizontalAlignment="Left" Margin="42,158,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="rollno" HorizontalAlignment="Left" Height="23" Margin="115,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" TabIndex="4"/>
+        <DataGrid x:Name="datagridfia" HorizontalAlignment="Left" Height="315" Margin="315,39,0,0" VerticalAlignment="Top" Width="457" TabIndex="9"/>
+        <Label Content="Marks" HorizontalAlignment="Left" Margin="50,214,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="marks" HorizontalAlignment="Left" Height="23" Margin="115,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" TabIndex="5"/>
+        <Button Content="Export to xl Sheet" HorizontalAlignment="Left" Margin="80,295,0,0" VerticalAlignment="Top" Width="160" Click="export_xl" TabIndex="7"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="80,335,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click_1" TabIndex="8"/>
+        <Button Content="Insert" HorizontalAlignment="Left" Margin="80,255,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click" TabIndex="6"/>
+        <Label Content="Note: Enter the Rollno based on &#xD;&#xA;student information" HorizontalAlignment="Left" Margin="115,189,0,0" VerticalAlignment="Top" FontSize="8"/>
+        <Label Content="Course" HorizontalAlignment="Left" Margin="42,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0.423"/>
+        <ComboBox x:Name="cbcourse" HorizontalAlignment="Left" Margin="115,39,0,0" VerticalAlignment="Top" Width="160" TabIndex="1"/>
+        <Label Content="Subject" HorizontalAlignment="Left" Margin="42,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0.423"/>
+        <TextBox x:Name="subtxt" HorizontalAlignment="Left" Height="23" Margin="115,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" TabIndex="2"/>
+        <Button x:Name="load_btn" Content="Load" HorizontalAlignment="Left" Margin="80,120,0,0" VerticalAlignment="Top" Width="160" Click="Load_btn_Click" TabIndex="3"/>
+        <Separator HorizontalAlignment="Left" Height="22" Margin="30,139,0,0" VerticalAlignment="Top" Width="255"/>
+
+    </Grid>
+</Window>
